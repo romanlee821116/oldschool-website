@@ -32,7 +32,12 @@
 </script>
 
 <template>
-  <Modal :isPicture="true" :visible="props.visible" title="Image" @close="handleClose">
+  <Modal
+    :isPicture="true"
+    :visible="props.visible"
+    title="Image"
+    @close="handleClose"
+  >
     <div class="jpeg-modal-content">
       <img v-if="imageSrc" :src="imageSrc" alt="jpeg" />
     </div>
@@ -50,7 +55,7 @@
 
   img {
     width: auto;
-    height: 75%;
+    height: 100%;
     object-fit: contain;
     image-rendering: pixelated;
     display: block;

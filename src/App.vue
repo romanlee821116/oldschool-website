@@ -36,8 +36,11 @@ let dragOffset = { x: 0, y: 0 }
 
 const isShowInfoModal = ref(true)
 const isShowPhotoModal = ref(true)
-const isShowJpegModal = ref(false)
-const selectedImageSrc = ref('')
+const imageSourceList = ref<string[]>([])
+
+const closeJpegModal = (imageSrc: string) => {
+  imageSourceList.value = imageSourceList.value.filter(src => src !== imageSrc)
+}
 
 const photos = ref([
   { src: wallpaper1, alt: 'photo1' },
@@ -81,8 +84,7 @@ const showModal = (type: string) => {
 }
 
 const handleImageClick = (src: string) => {
-  selectedImageSrc.value = src
-  isShowJpegModal.value = true
+  imageSourceList.value.push(src)
 }
 
 onMounted(() => {
@@ -131,9 +133,11 @@ onUnmounted(() => {
       @imageClick="handleImageClick"
     />
     <JpegModal
-      :visible="isShowJpegModal"
-      :src="selectedImageSrc"
-      @close="isShowJpegModal = false"
+      v-for="imageSrc in imageSourceList"
+      :key="imageSrc"
+      :visible="imageSourceList.includes(imageSrc)"
+      :src="imageSrc"
+      @close="closeJpegModal(imageSrc)"
     />
   </div>
 </template>

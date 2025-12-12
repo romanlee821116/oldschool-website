@@ -167,7 +167,7 @@ onUnmounted(() => {
 .modal-window {
   position: absolute;
   height: fit-content;
-  width: 600px;
+  max-width: 600px;
   background: #fff;
   border: 2px solid #dfdfdf;
   box-shadow: -2px -2px 0px 0px #0A0A0A inset, 2px 2px 0px 0px #D1D3D4 inset, -4px -4px 0px 0px rgba(65, 65, 67, 0.75) inset, 4px 4px 0px 0px #FFF inset;

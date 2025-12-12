@@ -48,13 +48,14 @@
   <Modal :visible="props.visible" :initialX="initialX" :initialY="initialY" title="Photo" @close="handleClose">
     <div>
       <div class="photo-modal-content">
-        <img 
-          v-for="(photo, index) in props.photos"
-          :key="index"
-          :src="photo.src" 
-          :alt="photo.alt" 
-          @click="handleImageClick(photo.src)"
-        />
+        <div v-for="photo in props.photos" :key="photo.src">
+          <img 
+            :src="photo.src" 
+            :alt="photo.alt" 
+            @click="handleImageClick(photo.src)"
+          />
+          <p>{{ photo.alt }}</p>
+        </div>
       </div>
     </div>
   </Modal>
@@ -76,6 +77,12 @@
     &:hover {
       border: 1px dashed #000;
     }
+  }
+
+  p {
+    text-align: center;
+    font-size: 12px;
+    margin-top: 8px;
   }
 }
 </style>
