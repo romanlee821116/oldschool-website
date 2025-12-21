@@ -36,9 +36,8 @@
 <template>
   <Modal :visible="props.visible" :initialX="initialX" :initialY="initialY" title="Info" @close="handleClose">
     <div>
-      <h1>Hi,</h1>
       <div class="info-modal-content">
-        I am a dedicated CRM Specialist at BMW, driven by a passion for delivering premium customer experiences that reflect the brand’s reputation for excellence. With a background in customer relationship management and data-driven marketing, I focus on understanding customer behavior, identifying engagement opportunities, and ensuring every interaction aligns with BMW’s standard of precision and luxury. My daily work involves analyzing customer feedback, monitoring journey touchpoints, and coordinating with sales and service teams to enhance satisfaction and retention. I take pride in transforming raw data into actionable insights and building communication strategies that strengthen long-term loyalty. For me, CRM is not just about systems—it’s about creating meaningful and personalized experiences for every customer who chooses the BMW brand.
+        I'M A CAT!
       </div>
     </div>
   </Modal>

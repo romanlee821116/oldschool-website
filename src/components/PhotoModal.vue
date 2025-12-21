@@ -42,6 +42,14 @@
   const handleClose = () => {
     emit('close')
   }
+
+  // 判斷是否為影片格式
+  const isVideo = (src: string) => {
+    if (!src) return false
+    const videoExtensions = ['.mp4', '.webm', '.ogg', '.mov', '.avi', '.wmv', '.flv', '.mkv', '.MP4']
+    const lowerSrc = src.toLowerCase()
+    return videoExtensions.some(ext => lowerSrc.endsWith(ext.toLowerCase()))
+  }
 </script>
 
 <template>
@@ -50,9 +58,18 @@
       <div class="photo-modal-content">
         <div v-for="photo in props.photos" :key="photo.src">
           <img 
+            v-if="!isVideo(photo.src)"
             :src="photo.src" 
             :alt="photo.alt" 
             @click="handleImageClick(photo.src)"
+          />
+          <video 
+            v-if="isVideo(photo.src)"
+            :src="photo.src" 
+            :alt="photo.alt"
+            @click="handleImageClick(photo.src)"
+            muted
+            loop
           />
           <p>{{ photo.alt }}</p>
         </div>
@@ -65,9 +82,10 @@
 .photo-modal-content {
   display: flex;
   flex-wrap: wrap;
-  gap: 32px;
+  gap: 20px;
 
-  img {
+  img,
+  video {
     width: 120px;
     height: 120px;
     object-fit: cover;

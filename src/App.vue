@@ -5,16 +5,15 @@ import PhotoModal from './components/PhotoModal.vue'
 import JpegModal from './components/JpegModal.vue'
 // @ts-ignore
 import fileImg from './assets/file.png'
-// @ts-ignore
 import infoImg from './assets/info.png'
-// @ts-ignore
 import photoImg from './assets/photo.png'
-// @ts-ignore
-import wallpaper1 from './assets/wallpaper-1.jpeg'
-// @ts-ignore
-import wallpaper2 from './assets/wallpaper-2.jpeg'
-// @ts-ignore
-import wallpaper3 from './assets/wallpaper-3.jpeg'
+import dudu1 from './assets/dudu-1.jpeg'
+import dudu3 from './assets/dudu-3.jpeg'
+import dudu4 from './assets/dudu-4.jpeg'
+import dudu5 from './assets/dudu-5.jpeg'
+import dudu7 from './assets/dudu-7.jpeg'
+import dudu8 from './assets/dudu-8.jpeg'
+import duduVideo from './assets/dudu-video.mp4'
 
 interface ImagePosition {
   id: string
@@ -42,11 +41,15 @@ const closeJpegModal = (imageSrc: string) => {
   imageSourceList.value = imageSourceList.value.filter(src => src !== imageSrc)
 }
 
-const photos = ref([
-  { src: wallpaper1, alt: 'photo1' },
-  { src: wallpaper2, alt: 'photo2' },
-  { src: wallpaper3, alt: 'photo3' }
-])
+const photos = [
+  { src: dudu1, alt: 'DuDu1' },
+  { src: dudu3, alt: 'DuDu2' },
+  { src: dudu4, alt: 'DuDu3' },
+  { src: dudu5, alt: 'DuDu4' },
+  { src: dudu7, alt: 'DuDu5' },
+  { src: dudu8, alt: 'DuDu6' },
+  { src: duduVideo, alt: 'DuDuVideo' },
+]
 
 const handleMouseDown = (event: MouseEvent, image: ImagePosition) => {
   draggedImage = image
@@ -101,7 +104,7 @@ onUnmounted(() => {
 <template>
   <div id="app">
     <div class="container">
-      <div class="name blocky">Sandy.c</div>
+      <div class="name blocky">DuDu.FAT</div>
       <div class="images" ref="imagesContainer">
         <div
           v-for="image in images"
